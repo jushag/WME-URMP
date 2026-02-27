@@ -1134,6 +1134,7 @@ function WMEURMPT_Injected () {
 
   WMEURMPT.isURFiltered2 = function (ur) {
     const userId = WMEURMPT.loginManager.user.getID()
+    const Map_TeamUserId = 2218201706
     let found = false
     let inside = false
     let filterArea = []
@@ -1212,7 +1213,7 @@ function WMEURMPT_Injected () {
     if (WMEURMPT.currentURFilter & WMEURMPT.URFilterList.hideWithoutCommentFromMT) {
       found = false
       for (let c = 0; c < ur.data.session.comments.length; c++) {
-        if (ur.data.session.comments[c].userName === "Map_Team") {
+        if (ur.data.session.comments[c].userID === Map_TeamUserId) {
           found = true
           break
         }
