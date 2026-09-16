@@ -4,8 +4,6 @@
 // @description Track UR and MP in the Waze Map Editor
 // @namespace   https://greasyfork.org/en/scripts/368141-wme-ur-mp-tracking
 // @include     /^https:\/\/(www|beta)\.waze\.com\/(?!user\/)(.{2,6}\/)?editor\/?.*$/
-// @updateURL   https://github.com/jangliss/WME-URMP/raw/refs/heads/main/WME-URMP.user.js
-// @downloadURL https://github.com/jangliss/WME-URMP/raw/refs/heads/main/WME-URMP.user.js
 // @require     https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js
 // @icon        data:image/png;base64,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
 // @grant       GM_addElement
@@ -18,7 +16,7 @@
 // @author      dummyd2, seb-d59, jangliss
 // @connect     waze.netdork.net
 // @downloadURL https://update.greasyfork.org/scripts/368141/WME%20UR-MP%20tracking.user.js
-// @updateURL   https://update.greasyfork.org/scripts/368141/WME%20UR-MP%20tracking.meta.js
+// @updateURL https://update.greasyfork.org/scripts/368141/WME%20UR-MP%20tracking.meta.js
 // ==/UserScript==
 
 /*******
@@ -214,6 +212,8 @@ function WMEURMPT_Injected () {
   WMEURMPT.dom = {}
   WMEURMPT.driveArea = []
   WMEURMPT.managedAreas = []
+  WMEURMPT.cachedFilterArea = []
+  WMEURMPT.cachedFilterType = null
   WMEURMPT.sortModeListUR = { ageASC: 1, ageDSC: -1, typeASC: 2, typeDSC: -2, commentCountASC: 3, commentCountDSC: -3, distanceASC: 4, distanceDSC: -4, lastCommentASC: 5, lastCommentDSC: -5 }
   WMEURMPT.sortModeListMP = { priorityASC: 1, priorityDSC: -1, typeASC: 2, typeDSC: -2, distanceASC: 3, distanceDSC: -3 }
   WMEURMPT.sortModeListMC = { distanceASC: 1, distanceDSC: -1, commentCountASC: 2, commentCountDSC: -2, ageASC: 3, ageDSC: -3, lastCommentASC: 4, lastCommentDSC: -4 }
@@ -6489,6 +6489,11 @@ function WMEURMPT_Injected () {
         filterArea = filterArea.concat(WMEURMPT.fetchAreaGeometry(filter.name, filter.type))
       }
 
+      if (filterArea.length > 0) {
+        WMEURMPT.cachedFilterArea = filterArea
+        WMEURMPT.cachedFilterType = filter.type
+      }
+
       WMEURMPT.logDebug('Filter Areas Count:', filterArea.length);
 
       let cmp = 0
@@ -6660,6 +6665,102 @@ function WMEURMPT_Injected () {
     return MPs
   }
 
+  WMEURMPT.getPURs = function (bounds, filter) {
+    const body = JSON.stringify({
+        fromCreationTime: null,
+        fromUpdateTime: null,
+        toCreationTime: null,
+        toUpdateTime: null,
+        bbox: [bounds[0], bounds[1], bounds[2], bounds[3]],
+        cityId: null,
+        countryId: null,
+        managedAreaId: null,
+        managedAreaIds: null,
+        stateId: null,
+        userPropertiesFilter: {},
+        venueUpdateRequestsFilter: {
+            categories: null,
+            lockRanks: [0, 1, 2, 3, 4, 5],
+            residential: null,
+            types: null
+        }
+    })
+
+    let xhr3Object = null
+    if (XMLHttpRequest) {
+        xhr3Object = new XMLHttpRequest()
+    } else if (ActiveXObject) {
+        xhr3Object = new ActiveXObject('Microsoft.XMLHTTP')
+    }
+
+    let PURs = null
+    xhr3Object.open('POST', 'https://' + document.location.host + '/Descartes/app/v1/Issues/Search/Map', false)
+    xhr3Object.withCredentials = true
+    xhr3Object.setRequestHeader('content-type', 'application/json; charset=utf-8')
+    const csrfToken = document.cookie.split('; ').find(c => c.startsWith('_csrf_token=')) ?.split('=')[1]
+    if (csrfToken) {
+        xhr3Object.setRequestHeader('x-csrf-token', decodeURIComponent(csrfToken))
+    }
+    xhr3Object.send(body)
+
+    if (xhr3Object.status === 200) {
+        try {
+            PURs = JSON.parse(xhr3Object.responseText)
+        } catch (e) {
+            WMEURMPT.log("Error: can't read PUR server response: ", e)
+            WMEURMPT.log('Response from server: ', xhr3Object.responseText)
+            PURs = null
+        }
+    }
+
+    if (PURs === null || !Object.prototype.hasOwnProperty.call(PURs, 'venues')) {
+        return null
+    }
+
+    if (filter != null) {
+        let filterArea = []
+        if (filter.type === 'editableArea' || filter.type === 'driveArea' || filter.type === 'managedArea') {
+           filterArea = WMEURMPT.cachedFilterArea ?? []
+        }
+        if (filter.type === 'country' || filter.type === 'custom') {
+            filterArea = filterArea.concat(WMEURMPT.fetchAreaGeometry(filter.name, filter.type))
+        }
+
+        let i = 0
+        while (i < PURs.venues.objects.length) {
+            const thePUR = PURs.venues.objects[i]
+            if (!thePUR.venueUpdateRequests || thePUR.venueUpdateRequests.length === 0) {
+                PURs.venues.objects.splice(i, 1)
+                continue
+            }
+            let lonlat = null
+            if (thePUR.geometry.type === 'Point') {
+                lonlat = turf.point(thePUR.geometry.coordinates)
+            } else {
+                lonlat = turf.centroid(turf.polygon(thePUR.geometry.coordinates))
+            }
+            let inside = false
+            for (let a = 0; a < filterArea.length; a++) {
+                if (turf.booleanPointInPolygon(lonlat, filterArea[a])) {
+                    inside = true
+                    break
+                }
+            }
+            if (!inside) {
+                PURs.venues.objects.splice(i, 1)
+                continue
+            }
+            i++
+        }
+
+        PURs.area = filterArea
+        PURs.filterType = filter.type
+        PURs.tile = bounds
+    }
+
+    return PURs
+  }
+
   WMEURMPT.updateURList = function (URs) {
     if (Object.prototype.hasOwnProperty.call(URs, 'mapUpdateRequests') === false) {
       return
@@ -6808,10 +6909,15 @@ function WMEURMPT_Injected () {
     }
   }
   WMEURMPT.updatePURList = function (PURs) {
-    if (Object.prototype.hasOwnProperty.call(PURs, 'venues') === false) {
+    if (PURs === null || Object.prototype.hasOwnProperty.call(PURs, 'venues') === false) {
       return
     }
     for (let i = 0; i < PURs.venues.objects.length; i++) {
+      if (!PURs.venues.objects[i].venueUpdateRequests ||
+           PURs.venues.objects[i].venueUpdateRequests.length === 0) {
+          continue
+      }
+
       let found = true
       let pur = WMEURMPT.getPURFromId(PURs.venues.objects[i].id)
       if (pur == null) {
@@ -6983,6 +7089,10 @@ function WMEURMPT_Injected () {
     for (let i = 0; i < WMEURMPT.PURList.length; i++) {
       WMEURMPT.PURList[i].updated = false
     }
+
+    WMEURMPT.cachedFilterArea = []
+    WMEURMPT.cachedFilterType = null
+    
     WMEURMPT.log('Starting scan...')
     WMEURMPT.log('Tile count: ' + WMEURMPT.scanAreaBoundsList.length)
     const pb = new WMEURMPT.ProgressBar(WMEURMPT.getId('urt-progressBar'))
@@ -7075,6 +7185,7 @@ function WMEURMPT_Injected () {
     tileBounds = WMEURMPT.scanAreaBoundsList[0]
     const progression = Math.floor((1 - WMEURMPT.scanAreaBoundsList.length / WMEURMPT.scanAreaBoundsCount) * 100)
     const MPs = WMEURMPT.getMPs(tileBounds, areaFilter)
+    const PURs = WMEURMPT.scanPUR ? WMEURMPT.getPURs(tileBounds, areaFilter) : null
 
     WMEURMPT.scanAreaBoundsList.shift()
     if (MPs != null) {
@@ -7118,11 +7229,11 @@ function WMEURMPT_Injected () {
 
         WMEURMPT.scanAreaBoundsCount += 4
       } else {
-        WMEURMPT.log('Found: ' + (Object.prototype.hasOwnProperty.call(MPs, 'mapUpdateRequests') ? MPs.mapUpdateRequests.objects.length + ' URs; ' : '') + (Object.prototype.hasOwnProperty.call(MPs, 'problems') ? MPs.problems.objects.length + ' MPs; ' : '') + (Object.prototype.hasOwnProperty.call(MPs, 'mapComments') ? MPs.mapComments.objects.length + ' MCs; ' : '') + (Object.prototype.hasOwnProperty.call(MPs, 'venues') ? MPs.venues.objects.length + ' PURs' : ''))
+        WMEURMPT.log('Found: ' + (Object.prototype.hasOwnProperty.call(MPs, 'mapUpdateRequests') ? MPs.mapUpdateRequests.objects.length + ' URs; ' : '') + (Object.prototype.hasOwnProperty.call(MPs, 'problems') ? MPs.problems.objects.length + ' MPs; ' : '') + (Object.prototype.hasOwnProperty.call(MPs, 'mapComments') ? MPs.mapComments.objects.length + ' MCs; ' : '') + (PURs && Object.prototype.hasOwnProperty.call(PURs, 'venues') ? PURs.venues.objects.length + ' PURs' : ''))
         WMEURMPT.updateURList(MPs)
         WMEURMPT.updateMPList(MPs)
         WMEURMPT.updateMCList(MPs)
-        WMEURMPT.updatePURList(MPs)
+        WMEURMPT.updatePURList(PURs)
         WMEURMPT.removeOldURMP(MPs.area, MPs.filterType, MPs.tile)
       }
     }
@@ -7857,7 +7968,7 @@ function WMEURMPT_Injected () {
   WMEURMPT.getPUR = function (lon, lat, id) {
     const turfLine = turf.lineString([[lon - 0.01, lat - 0.01], [lon + 0.01, lat + 0.01]])
     const bounds = turf.bbox(turfLine)
-    const PURs = WMEURMPT.getMPs(bounds)
+    const PURs = WMEURMPT.getPURs(bounds, null)
     if (PURs == null) {
       return null
     }
